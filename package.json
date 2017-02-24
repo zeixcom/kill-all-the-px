@@ -1,0 +1,33 @@
+{
+  "name": "kill-all-the-px",
+  "version": "0.0.1",
+  "description": "A little node tool to replace all px values in your stylesheets with shiny new rem values",
+  "main": "kill-all-the-px.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://mbuehrig@github.com/zeixcom/kill-all-the-px.git"
+  },
+  "keywords": [
+    "node",
+    "px",
+    "rem",
+    "helper",
+    "zeix"
+  ],
+  "author": "Marcel Bührig <marcel.buehrig@zeix.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeixcom/kill-all-the-px/issues"
+  },
+  "homepage": "https://github.com/zeixcom/kill-all-the-px#readme",
+  "bin": {
+    "kill-all-the-px": "kill-all-the-px.js"
+  },
+  "dependencies": {
+    "inquirer": "^3.0.4",
+    "merge": "^1.2.0"
+  }
+}
