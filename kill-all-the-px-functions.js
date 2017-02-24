@@ -19,7 +19,7 @@ module.exports = {
         var fileExt = path.extname(path.join(dir, file)),
             isInFileExtArray = config.fileExts.indexOf(fileExt);
 
-        if (isInFileExtArray !== -1 && file === 'personlist.less') {
+        if (isInFileExtArray !== -1 && file) {
           filelist.push(path.join(dir, file));
         }
       }
