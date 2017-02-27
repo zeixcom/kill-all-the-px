@@ -36,6 +36,7 @@ module.exports = {
 
       if (matchesInFile !== null) {
         matchesInFile.forEach(function(match) {
+
           if (matchesToReplace.indexOf(match) === -1) {
             matchesToReplace.push(match);
           }
@@ -44,16 +45,19 @@ module.exports = {
     });
 
     matchesToReplace.forEach(function (currentFaulty) {
-      var matches = currentFaulty.match(new RegExp('\\d*(\\.?\\d+)', 'g'));
+      var matches = currentFaulty.match(new RegExp('\\d+', 'g'));
 
       if (matches !== null) {
+
         matches.forEach(function (match) {
-          var px = parseFloat(match),
-              remValue = px / userAnswers.baseFontSize;
+          if (match !== '0') {
+            var px = parseFloat(match),
+                remValue = px / userAnswers.baseFontSize;
 
-          var newShiny = currentFaulty.replace(new RegExp('\\d*(\\.?\\d+)px', 'g'), remValue + 'rem');
+            var newShiny = currentFaulty.replace(new RegExp('\\d+px', 'g'), remValue + 'rem');
 
-          fileContent = fileContent.replace(currentFaulty, newShiny);
+            fileContent = fileContent.replace(currentFaulty, newShiny);
+          }
         });
       }
     });
