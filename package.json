@@ -1,6 +1,6 @@
 {
   "name": "kill-all-the-px",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A little node tool to replace all px values in your stylesheets with shiny new rem values",
   "main": "kill-all-the-px.js",
   "scripts": {
