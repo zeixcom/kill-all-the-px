@@ -24,6 +24,7 @@ module.exports = {
         }
       }
     });
+
     return filelist;
   },
 
@@ -44,8 +45,14 @@ module.exports = {
       }
     });
 
+    // console.log('matchesToReplace', matchesToReplace);
+
+    var counter = 0;
+
     matchesToReplace.forEach(function (currentFaulty) {
-      var matches = currentFaulty.match(new RegExp('\\d+', 'g'));
+
+      var matches = currentFaulty.match(new RegExp('\\d+', 'g')),
+          currentFixed = currentFaulty;
 
       if (matches !== null) {
 
@@ -54,13 +61,21 @@ module.exports = {
             var px = parseFloat(match),
                 remValue = px / userAnswers.baseFontSize;
 
-            var newShiny = currentFaulty.replace(new RegExp('\\d+px', 'g'), remValue + 'rem');
+            var newShiny = currentFixed.replace(new RegExp(match + '+px', 'g'), remValue + 'rem');
 
-            fileContent = fileContent.replace(currentFaulty, newShiny);
+            if (newShiny !== currentFixed) {
+              counter++;
+
+              currentFixed = newShiny;
+            }
           }
         });
+
+        fileContent = fileContent.replace(currentFaulty, currentFixed);
       }
     });
+
+    console.log('replaced Lines per this file', counter);
 
     return fileContent;
   }

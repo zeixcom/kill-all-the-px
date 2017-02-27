@@ -54,7 +54,7 @@ inquirer.prompt([
   userAnswers = answers;
 
   // find a file recursively by file ending
-  helpers.walkSync(process.env.PWD + answers.path, fileList, config);
+  helpers.walkSync(process.env.PWD + '/' + answers.path, fileList, config);
 
   fileList.forEach(function (filePath) {
     fs.readFile(filePath, 'utf8', function (err, data) {
